@@ -159,21 +159,23 @@ class VFSApp:
     def show_help(self):
         help_text = (
           "Commands:\n"
-                    "mkdir <dir>                    - Create directory\n"    
-                    "chdir <dir>                       - Change directory\n"
-                    "ls                             - List contents\n"
-                    "create <file>                   - Create file\n"
-                    "open <file>                    - Open file\n"
-                    "write <file> <text>            - Write text to file\n"
-                    "write_at <file> <index> <text> - Write at position\n"
-                    "read <file>                    - Read file\n"
+                    "open <file>      - Open file\n"
+                    "read <file>      - Read file\n"
+                    "close <file>     - Close file\n"
+                    "create <file>    - Create file\n"
+                    "ls               - List contents\n"  
+                    "memmap    - Show memory map\n"        
+                    "mkdir <dir>       - Create directory\n"    
+                    "chdir <dir>       - Change directory\n"
+
+                    "write <file><text>- Write text to file\n"
+                    "del <file|dir>    - Delete file or directory\n"
+                    "truncate <file> <size>- Truncate file to size\n"
+                    "write_at <file> <index> <text>- Write at position\n"
+                    
                     "read_start_len <file> <start> <len> - Read file from start\n"
                     "move_within <file> <start> <len> <target> - Move text inside file\n"
-                    "truncate <file> <size>         - Truncate file to size\n"
-                    "close <file>                   - Close file\n"
-                    "del <file|dir>                  - Delete file or directory\n"
-                    "memmap                        - Show memory map"
-                    "help                           - Show commands"
+                    "Right click on file or lank window to show the menu of operations availible respectively"
         )
         messagebox.showinfo("Help", help_text)
 
