@@ -1,0 +1,92 @@
+####################### System Design Description ######################################
+
+
+Key Classes
+
+#########################################################################################
+1. VirtualFile (Located in fs.py)
+
+Purpose:
+Represents a single file within the virtual file system.
+
+Functionality:
+
+Writing: Allows writing text to the end of the file.
+
+Reading: Supports reading the entire content or reading a specific portion of the file.
+
+Inserting at a Position: Enables inserting or overwriting text at any index within the file content.
+
+Moving Content: Allows moving a section of text from one part of the file to another.
+
+Truncating: Cuts the file's content to a specific length, effectively shortening the file.
+
+Note:
+The file's content is stored as a simple string inside the VirtualFile object.
+
+
+#########################################################################################
+
+2. VirtualFileSystem (Located in fs.py)
+Purpose:
+Manages the overall file system including files, directories, navigation, and file operations.
+
+Functionality:
+
+File and Directory Management:
+Create, delete, rename (move), and navigate between folders and files.
+
+Open File Management:
+Keeps a list of files that are currently opened for operations like writing or reading.
+
+Command Support:
+Supports commands like create, delete, mkdir, chdir, ls, truncate, and others.
+
+Memory Map:
+Provides a tree-style visualization of the directory structure through the show_memory_map() function.
+
+Persistence:
+After every important operation (such as creating, deleting, or modifying a file/folder), the entire file system is saved to a file named sample.dat using Python’s pickle module.
+This ensures that even if the system is closed and reopened, all previous files and folders are restored.
+
+#########################################################################################
+
+3. VFSApp (Located in gui.py)
+Purpose:
+Provides a graphical interface (GUI) for interacting with the Virtual File System.
+
+Functionality:
+
+Command-line Interaction:
+A command input box is available in the middle, where users can type commands just like a terminal.
+
+File Browser:
+Displays the current folder contents in a list box.
+
+Context Menu Support:
+Right-clicking on a file shows options like Open or Delete.
+Right-clicking on an empty area shows options like Create Folder or Create File.
+
+Double-Click Actions:
+Double-clicking a file opens and displays its content.
+Double-clicking a folder changes the current working directory to that folder.
+
+Help and Clear Options:
+Buttons like Help, Clear, and Browse Dir are provided for quick assistance and refreshing the interface.
+
+Command History Navigation:
+Users can press the Up and Down arrow keys to quickly reuse previously typed commands.
+
+Storage System
+How It Works:
+The entire virtual file system (both files and directories) is stored in a Python dictionary structure rooted at 'root'.
+When the user creates, modifies, or deletes something, the updated dictionary is saved into a file called sample.dat using the pickle module.
+
+Advantages:
+
+Fast loading and saving.
+
+No need for manual database management.
+
+Persistent storage even after application restarts (sample.dat) has recorded the state.
+
